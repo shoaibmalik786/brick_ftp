@@ -1,5 +1,6 @@
 # BrickFTP
 [![Build Status](https://travis-ci.com/shoaibmalik786/brick_ftp.svg?branch=master)](https://travis-ci.com/shoaibmalik786/brick_ftp)
+[![Coverage Status](https://coveralls.io/repos/github/shoaibmalik786/brick_ftp/badge.svg?branch=master)](https://coveralls.io/github/shoaibmalik786/brick_ftp?branch=master)
 
 ## Installation
 
