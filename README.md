@@ -2,12 +2,14 @@
 [![Build Status](https://travis-ci.com/shoaibmalik786/brick_ftp.svg?branch=master)](https://travis-ci.com/shoaibmalik786/brick_ftp)
 [![Coverage Status](https://coveralls.io/repos/github/shoaibmalik786/brick_ftp/badge.svg?branch=master)](https://coveralls.io/github/shoaibmalik786/brick_ftp?branch=master)
 
+This is a [BrickFTP](https://brickftp.com/)'s _official_ [REST API](https://developers.brickftp.com/) Client.
+
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'brick_ftp'
+gem 'brick_ftp', github: 'shoaibmalik786/brick_ftp'
 ```
 
 And then execute:
@@ -18,9 +20,75 @@ Or install it yourself as:
 
     $ gem install brick_ftp
 
+## Try it right away
+
+Sign up for a [free account](https://brickftp.com/) so you can try out super secure file sharing for your business.
+
 ## Usage
 
-TODO: Write usage instructions here
+For plenty of API options, see our [documentation](https://developers.brickftp.com/).
+
+### Configuration
+
+Login to your brickftp dashboard and find the `api_key` and your `subdomain`
+
+After executing of the gerenrator command `rails generate imagekit:install`, you will get a file named as `brick_ftp.rb` under `config/initializers`.
+
+Replace the corresponding values
+
+```
+BrickFtp.configure do |config|
+  config.api_key = 'xxxxxxxxxxxxxx'
+  config.subdomain = 'xxxx'
+end
+
+```
+
+### Users API
+List users
+```
+BrickFtp::User.list
+```
+
+Count users
+```
+BrickFtp::User.count
+```
+
+Search users
+```
+BrickFtp::User.search()
+```
+
+Show a user
+```
+BrickFtp::User.show(user_id)
+```
+
+Create a user
+```
+  BrickFtp::User.create(username: 'test', password: 'password')
+```
+
+Update a user
+```
+BrickFtp::User.update(user_id, {
+        password: "new_password", 
+        require_password_change: true
+        username: 'newusername'
+    })
+```
+
+Delete a user
+
+```
+BrickFtp::User.delete(user_id)
+```
+
+Unlock a user if locked
+```
+BrickFtp::User.unlock(user_id)
+```
 
 ## Development
 
