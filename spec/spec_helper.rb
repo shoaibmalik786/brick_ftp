@@ -1,9 +1,9 @@
 require 'bundler/setup'
 require 'rspec'
 require 'simplecov'
-require 'brick_ftp'
+require 'brickftp'
 require 'base64'
-require 'brick_ftp_spec_initializer'
+require 'brickftp_spec_initializer'
 require 'pry'
 require 'coveralls'
 Coveralls.wear!

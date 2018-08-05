@@ -1,14 +1,14 @@
 lib = File.expand_path('lib', __dir__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'brick_ftp/version'
+require 'brickftp/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = 'brick_ftp'
-  spec.version       = BrickFtp::VERSION
+  spec.name          = 'brickftp'
+  spec.version       = Brickftp::VERSION
   spec.authors       = ['Shoaib Malik']
   spec.email         = ['shoaib2109@gmail.com']
 
-  spec.summary       = 'Ruby gem for BrickFtp APIs'
+  spec.summary       = 'Ruby gem for Brickftp APIs'
   spec.description   = 'Super secure file sharing for business.'
   spec.homepage      = 'https://brickftp.com/'
   spec.license       = 'MIT'
