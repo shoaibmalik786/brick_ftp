@@ -193,7 +193,7 @@ module Brickftp
     end
 
     def uploading(upload_uri, data)
-      request :put, "#{upload_uri}", data
+      request :post, "#{upload_uri}", data
     end
 
     def request_additional_url(path_and_filename, data = {})
