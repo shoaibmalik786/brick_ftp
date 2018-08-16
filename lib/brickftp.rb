@@ -17,7 +17,7 @@ require 'brickftp/upload'
 require 'brickftp/session'
 require 'brickftp/request'
 require 'brickftp/http_client'
-require 'brickftp/Utils/chunk_io'
+require 'brickftp/utils/chunk_io'
 require 'logger'
 
 # Gem configuration module
