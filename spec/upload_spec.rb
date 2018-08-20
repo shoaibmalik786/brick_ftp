@@ -8,11 +8,11 @@ RSpec.describe 'Brickftp::Upload' do
 
   it "file does not exist #create" do
     begin
-      file = Rack::Test::UploadedFile.new("spec/data/not_found.txt")
-      res = Brickftp::Upload.create(path: "#{file}", source: file)
+      #file = Rack::Test::UploadedFile.new("spec/data/not_found.txt")
+      Brickftp::Upload.create(path: "abc.txt", source: "abc.txt")
     rescue Exception => e
       @error = e.message
     end
-    expect(@error).to eql("spec/data/not_found.txt file does not exist")
+    expect(@error).to eql("No such file or directory @ rb_sysopen - abc.txt")
   end    
 end
