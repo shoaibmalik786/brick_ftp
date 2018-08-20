@@ -72,5 +72,18 @@ RSpec.describe 'Brickftp::Behavior' do
       new_list = Brickftp::Behavior.list
       expect(new_list.size).to eq(prev_list.size - 1)
     end
-  end    
+  end
+
+  describe 'Behavior#list_folder' do
+    before do
+      @folder_path = "folder#{SecureRandom.hex(3)}"
+      Brickftp::Folder.create(@folder_path)
+      @new_behavior = Brickftp::Behavior.create({path: @folder_path, behavior: "webhook", value: ["https://d.mywebhookhandler.com"]})
+    end
+
+    it 'list folder behavior' do
+      folder_behavior = Brickftp::Behavior.list_folder(@folder_path)
+      expect(folder_behavior[0]["path"]).to eql(@folder_path)
+    end
+  end      
 end

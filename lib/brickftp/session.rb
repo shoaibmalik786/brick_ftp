@@ -33,10 +33,6 @@ module Brickftp
   class Session
     def self.login(options = {})
       Brickftp::AuthenticationRequest.new('sessions').post(options)
-    end
-
-    # def self.logout(options = {})
-    #   Brickftp::Request.new('sessions').delete(options)
-    # end    
+    end    
   end
 end

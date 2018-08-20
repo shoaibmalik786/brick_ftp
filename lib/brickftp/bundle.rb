@@ -20,8 +20,8 @@ module Brickftp
       Brickftp::Request.new('bundles').delete(id)    
     end
 
-    def self.contents(path = nil, options = {})
-      Brickftp::Request.new('bundles').list_contents(path, options)    
+    def self.contents(options = {})
+      Brickftp::Request.new('bundles').list_contents(options)    
     end
 
     def self.download(options = {})

@@ -6,6 +6,7 @@ require 'base64'
 require 'brickftp_spec_initializer'
 require 'pry'
 require 'coveralls'
+SimpleCov.start
 Coveralls.wear!
 
 RSpec.configure do |config|

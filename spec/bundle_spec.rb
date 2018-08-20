@@ -62,7 +62,7 @@ RSpec.describe 'Brickftp::Bundle' do
     end
 
     it 'Bundle#contents' do
-      contents = Brickftp::Bundle.contents(nil, {code: @new_bundle["code"], password: "password"})
+      contents = Brickftp::Bundle.contents({code: @new_bundle["code"], password: "password"})
       expect(contents.first["type"]).to eq("directory")
     end
 

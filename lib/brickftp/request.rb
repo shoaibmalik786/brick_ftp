@@ -128,12 +128,8 @@ module Brickftp
 
     #Bundle's Api Requests
 
-    def list_contents(path = nil, data = {})
-      unless path.blank?
-        request :post, "#{@api_url}#{@entity_name}/contents/#{path}", data
-      else
-        request :post, "#{@api_url}#{@entity_name}/contents", data
-      end
+    def list_contents(data = {})
+      request :post, "#{@api_url}#{@entity_name}/contents", data
     end
 
     def download(data = {})
@@ -186,22 +182,6 @@ module Brickftp
 
     def list_folder_contents(path)
       request :get, "#{@api_url}#{@entity_name}/#{path}"
-    end
-
-    def start_new_upload(path_and_filename, data = {})
-      request :post, "#{@api_url}#{@entity_name}/#{path_and_filename}", data
-    end
-
-    def uploading(upload_uri, data)
-      request :post, "#{upload_uri}", data
-    end
-
-    def request_additional_url(path_and_filename, data = {})
-      request :post, "#{@api_url}#{@entity_name}/#{path_and_filename}", data
-    end
-
-    def completing_an_upload(path_and_filename, data = {})
-      request :post, "#{@api_url}#{@entity_name}/#{path_and_filename}", data
     end         
 
     def request(method, url, data = {})

@@ -1,9 +1,5 @@
+require "rack/test"
 RSpec.describe 'Brickftp::Folder' do
-  let(:new_folder) do
-    @folder_path = "folder#{SecureRandom.hex(3)}"
-    Brickftp::Folder.create(@folder_path)
-  end
-
   describe 'List Folder' do
     before do
       @folder_path = "folder#{SecureRandom.hex(3)}"
@@ -70,14 +66,42 @@ RSpec.describe 'Brickftp::Folder' do
   end
 
   describe 'Folder#depth_delete' do
-    before do
-      @folder_path = "folder#{SecureRandom.hex(3)}"
-      Brickftp::Folder.create(@folder_path)
+    context 'Valid' do
+      before do
+        @folder_path = "folder#{SecureRandom.hex(3)}"
+        Brickftp::Folder.create(@folder_path)
+      end
+
+      it 'Delete depth_delete' do
+        delete_folder = Brickftp::Folder.depth_delete(@folder_path)
+        expect(delete_folder.size).to eq(0)
+      end
     end
 
-    it 'Delete depth_delete' do
-      delete_folder = Brickftp::Folder.depth_delete(@folder_path)
-      expect(delete_folder.size).to eq(0)
+    context 'Invalid' do
+      it 'can not delete as file not found.' do
+        begin
+          Brickftp::Folder.depth_delete("folder#{SecureRandom.hex(3)}")
+        rescue Exception => e
+          @error = e.message
+        end
+        expect(@error).to eql('Not Found')
+      end
     end
-  end    
+  end
+
+  describe 'Folder#download_file' do
+    context 'Valid' do
+      before do
+        file = Rack::Test::UploadedFile.new("spec/data/test_download.txt")
+        res = Brickftp::Upload.create(path: "#{file.original_filename}", source: file)
+        @path = res['path']
+      end
+
+      it 'download file' do
+        download_response = Brickftp::Folder.download_file(@path)
+        expect(download_response["path"]).to eql(@path)
+      end
+    end
+  end      
 end

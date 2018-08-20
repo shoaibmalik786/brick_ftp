@@ -18,9 +18,11 @@ module Brickftp
       when Net::HTTPSuccess, Net::HTTPCreated
         res.body.nil? || res.body.empty? ? {} : JSON.parse(res.body)
       else
+        # :nocov:
         if !res.class.to_s.eql?('Array') && res['error']
           raise Brickftp::BrickftpException, res['error']
         end
+        # :nocov:
       end
     end
 
@@ -30,9 +32,11 @@ module Brickftp
       when Net::HTTPSuccess
         res.body.nil? || res.body.empty? ? {} : JSON.parse(res.body)
       else
+        # :nocov:
         if !res.class.to_s.eql?('Array') && res['error']
           raise Brickftp::BrickftpException, res['error']
         end
+        # :nocov:
       end
     end
 
