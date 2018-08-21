@@ -1,6 +1,6 @@
 # Brickftp
 [![Build Status](https://travis-ci.com/shoaibmalik786/brick_ftp.svg?branch=master)](https://travis-ci.com/shoaibmalik786/brick_ftp)
-[![Coverage Status](https://coveralls.io/repos/github/shoaibmalik786/brick_ftp/badge.svg?branch=master)](https://coveralls.io/github/shoaibmalik786/brick_ftp?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/shoaibmalik786/brick_ftp/badge.svg?branch=master&update=true)](https://coveralls.io/github/shoaibmalik786/brick_ftp?branch=master)
 
 This is a [Brickftp](https://brickftp.com/)'s _official_ [REST API](https://developers.brickftp.com/) Client.
 
